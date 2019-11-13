@@ -3,7 +3,7 @@ galaxy_info:
   description: Role to add a module to create a random and complex password.
   company: Informatique CDC
 
-  license: Apache
+  license: GPLv3
 
   min_ansible_version: 2.6
 

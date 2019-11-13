@@ -6,8 +6,8 @@
 
 ## Parameters
 
-| Parameter          | Required | Choices/Defaults    | Comments                                                                                                 |
-| ------------------ | -------- | ------------------- | -------------------------------------------------------------------------------------------------------- |
+| Parameter          | Required | Choices/Defaults      | Comments                                                                                                 |
+| ------------------ | -------- | --------------------- | -------------------------------------------------------------------------------------------------------- |
 | length             | no       | Default: `8`          | The number of characters in the generated password.<br/>The length must be between 1 and 128 characters. |
 | min_upper_case     | no       | Default: `1`          | The minimum number of uppercase letters of European languages (A through Z).                             |
 | min_lower_case     | no       | Default: `1`          | The minimum number of lowercase letters of European languages (a through z).                             |
@@ -65,7 +65,9 @@ The following are the fields unique to this module:
 
 ## License
 
-[Apache 2](LICENCE.txt)
+GNU General Public License v3.0
+
+See [LICENCE](LICENCE.txt) to see the full text.
 
 ## Author Information
 
