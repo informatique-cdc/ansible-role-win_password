@@ -63,12 +63,12 @@ The following are the fields unique to this module:
 | changed              | always   | Whether there was a change done.                |
 | win_complex_password | success  | A string containing the password in plain text. |
 
-## License
-
-GNU General Public License v3.0
-
-See [LICENSE](LICENSE) to see the full text.
-
-## Author Information
+## Authors
 
 * [Stéphane Bilqué](https://github.com/sbilque)
+
+## License
+
+This project is licensed under the Apache 2.0 License.
+
+See the [LICENSE](LICENSE) to see the full text.
