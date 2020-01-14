@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: win_password
   author: Stéphane Bilqué
   description: Role to add a module to create a random and complex password.
   company: Informatique CDC
@@ -14,7 +15,6 @@ galaxy_info:
      versions:
       - 2016
       - 2012 
-      - 2012 R2
 
   galaxy_tags:
     - windows
