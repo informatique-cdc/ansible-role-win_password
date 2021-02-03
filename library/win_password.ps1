@@ -18,7 +18,7 @@ $minUpperCase = Get-AnsibleParam -obj $params "min_upper_case" -type "int" -defa
 $minLowerCase = Get-AnsibleParam -obj $params "min_lower_case" -type "int" -default 1 -resultobj $result
 $minDigit = Get-AnsibleParam -obj $params "min_digit" -type "int" -default 1 -resultobj $result
 $minSpecial = Get-AnsibleParam -obj $params "min_special" -type "int" -default 1 -resultobj $result
-$specialCharacters = Get-AnsibleParam -obj $params "special_characters" -type "str" -default '!%&=?][#+-' -resultobj $result 
+$specialCharacters = Get-AnsibleParam -obj $params "special_characters" -type "str" -default '!%&=?][#+-' -resultobj $result
 
 $CharGroups = @(
     @{ min = $minLowerCase; characters = [char[]]'abcdefghiklmnoprstuvwxyz' },
@@ -48,18 +48,18 @@ Foreach ($Group in $CharGroups) {
         if ($PasswordArray.Count -lt $passwordLength) {
             $Index = Get-Seed
             While ($PasswordArray.ContainsKey($Index)) {
-                $Index = Get-Seed                        
+                $Index = Get-Seed
             }
             $PasswordArray.Add($Index, $characters[((Get-Seed) % $characters.Count)])
         }
-    }    
+    }
 }
 
 # Fill out with chars from $AllChars
 for ($i = $PasswordArray.Count; $i -lt $passwordLength; $i++) {
     $Index = Get-Seed
     While ($PasswordArray.ContainsKey($Index)) {
-        $Index = Get-Seed                        
+        $Index = Get-Seed
     }
     $PasswordArray.Add($Index, $AllChars[((Get-Seed) % $AllChars.Count)])
 }
@@ -79,7 +79,7 @@ if ($check_mode) {
         changed       = $false
         ansible_facts = @{
             win_complex_password = ''
-        }        
+        }
     }
 }
 else {
