@@ -6,19 +6,18 @@
 
 ## Parameters
 
-| Parameter          | Required | Choices/Defaults      | Comments                                                                                                 |
-| ------------------ | -------- | --------------------- | -------------------------------------------------------------------------------------------------------- |
-| length             | no       | Default: `8`          | The number of characters in the generated password.<br/>The length must be between 1 and 128 characters. |
-| min_upper_case     | no       | Default: `1`          | The minimum number of uppercase letters of European languages (A through Z).                             |
-| min_lower_case     | no       | Default: `1`          | The minimum number of lowercase letters of European languages (a through z).                             |
-| min_digit          | no       | Default: `1`          | The minimum number of characters from base 10 digits (0 through 9)                                       |
-| min_special        | no       | Default: `1`          | The minimum number of non-alphanumeric characters (special characters).                                  |
-| special_characters | non      | Default: `!%&=?][#+-` | A string containing all special characters allowed to use.                                               |
+| Parameter     | Choices/<font color="blue">Defaults</font> | Comments |
+| ------------- | ---------|--------- |
+|__length__<br><font color="purple">integer</font> | __Default:__<br><font color="blue">8</font> | The number of characters in the generated password. The length must be between 1 and 128 characters. |
+|__min_upper_case__<br><font color="purple">integer</font> | __Default:__<br><font color="blue">1</font> | The minimum number of uppercase letters of European languages (A through Z). |
+|__min_lower_case__<br><font color="purple">integer</font> | __Default:__<br><font color="blue">1</font> | The minimum number of lowercase letters of European languages (a through z). |
+|__min_digit__<br><font color="purple">integer</font> | __Default:__<br><font color="blue">1</font> | The minimum number of characters from base 10 digits (0 through 9). |
+|__min_special__<br><font color="purple">integer</font> | __Default:__<br><font color="blue">1</font> | The minimum number of non-alphanumeric characters (special characters). |
+|__special_characters__<br><font color="purple">string</font> | __Default:__<br><font color="blue">!%&=?][#+-</font> | A string containing all special characters allowed to use. |
 
 ## Examples
 
 ```yaml
----
 - hosts: localhost
 
   roles:
@@ -30,10 +29,11 @@
     - name: generate a complex password
       win_password:
         length: 14
-        min_upper_case: 2
+        min_upper_case: 3
         min_lower_case: 2
-        min_digit: 2
-        min_special: 1
+        min_digit: 1
+        min_special: 4
+        special_characters: '+-'
 
     - name: debug message
       debug:
@@ -46,7 +46,7 @@
         min_lower_case: 0
         min_digit: 0
         min_special: 1
-      register: myComplexPassword  
+      register: myComplexPassword
 
     - name: debug message
       debug:
@@ -56,19 +56,18 @@
 
 ## Return Values
 
-The following are the fields unique to this module:
+Facts returned by this module are added/updated in the `hostvars` host facts and can be referenced by name just like any other host fact. They do not need to be registered in order to use them.
 
-| Key                  | Returned | Description                                     |
-| -------------------- | -------- | ----------------------------------------------- |
-| changed              | always   | Whether there was a change done.                |
-| win_complex_password | success  | A string containing the password in plain text. |
+| Fact   | Returned   | Description |
+| ------ |------------| ------------|
+|__win_complex_password__<br><font color="purple">string</font> | success | A string containing the password in plain text. |
 
 ## Authors
 
-* [Stéphane Bilqué](https://github.com/sbilque)
+* Stéphane Bilqué (@sbilque)
 
 ## License
 
 This project is licensed under the Apache 2.0 License.
 
-See the [LICENSE](LICENSE) to see the full text.
+See [LICENSE](LICENSE) to see the full text.

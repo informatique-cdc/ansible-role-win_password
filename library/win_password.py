@@ -18,8 +18,8 @@ DOCUMENTATION = r'''
 ---
 module: win_password
 short_description: Creates a random and complex password
-author: 
-  - Stéphane Bilqué (@sbilque) 
+author:
+  - Stéphane Bilqué (@sbilque)
 description:
     - Ansible module to create a random and complex password on Windows-based systems.
 
@@ -47,14 +47,14 @@ options:
       - The minimum number of characters from base 10 digits (0 through 9).
     default: 1
     required: 'No'
-    type: int    
+    type: int
   min_special:
     description:
       - The minimum number of non-alphanumeric characters (special characters).
     default: 1
     required: 'No'
     type: int
-  special_characters:    
+  special_characters:
     description:
       - A string containing all special characters allowed to use.
     default: '!%&=?][#+-'
@@ -77,7 +77,7 @@ EXAMPLES = r'''
         min_lower_case: 2
         min_digit: 1
         min_special: 4
-        special_characters: '+-' 
+        special_characters: '+-'
 
     - name: debug message
       debug:
@@ -90,7 +90,7 @@ EXAMPLES = r'''
         min_lower_case: 0
         min_digit: 0
         min_special: 1
-      register: myComplexPassword  
+      register: myComplexPassword
 
     - name: debug message
       debug:
@@ -98,12 +98,13 @@ EXAMPLES = r'''
 '''
 
 RETURN = r'''
-changed:
-    description: Whether there was a change done.
-    type: bool
-    returned: always
-win_complex_password:
+ansible_facts:
     description: A string containing the password in plain text.
     returned: success
-    type: str
+    type: complex
+    contains:
+        win_complex_password:
+            description: A string containing the password in plain text.
+            returned: success
+            type: str
 '''
